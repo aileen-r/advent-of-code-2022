@@ -24,6 +24,13 @@ def part1(data):
 def part2(data):
     """Solve part 2."""
 
+    calories_carried = []
+    for carried_item_calories in data:
+        calories_carried.append(sum(carried_item_calories))
+
+    top_three = sorted(calories_carried, reverse=True)[:3]
+    return sum(top_three)
+
 
 def solve(puzzle_input):
     """Solve the puzzle for the given input."""
