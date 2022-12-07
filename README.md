@@ -19,3 +19,19 @@ After implementing the test for `scoreForRound` it was immediately obvious that 
 That was painful. Lessons learned:
 - unit testing speeds up debugging
 - when in doubt, use extra brackets for complex conditionals
+
+## How to run
+
+### Prerequisites
+
+- Install Python
+- Install [pytest](https://docs.pytest.org) with `pip install pytest`.
+
+### Running the day's solution
+1. `cd` into the directory of the day's problem, e.g. `cd day-01/`.
+2. Run `python ./solve.py`
+    - Add the `-test` option to run the solution with the test input.
+
+### Running the day's unit tests
+1. `cd` into the directory of the day's problem, e.g. `cd day-01/`.
+2. Run `python -m pytest ./test.py`.
