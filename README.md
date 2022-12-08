@@ -29,6 +29,14 @@ Learned:
 - `/` division always returns a float in Python 3. `//` can be used to return an integer.
 - first brush with generators, which seem to be used a lot in the Python community.
 
+## Day 04
+Started working with ranges proper, but by part 2 figured out they don't need enumerated and worked with tuples of the range start/stops instead.
+
+By switching to tuples in part 2 I lost my string-to-int cast for a while: test data was passing but real input was returning different results.
+
+Learned:
+- greater/less than comparitors of string representations of numbers do not work.
+
 ## How to run
 
 ### Prerequisites

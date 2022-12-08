@@ -3,35 +3,42 @@ import sys
 def parse(puzzle_input):
     """Parse input."""
 
-    result = map(lambda round: round.split(","), puzzle_input.split("\n"))
+    result = list(map(lambda round: round.split(","), puzzle_input.split("\n")))
     return result
 
 
-def getRangeFromAssignment(assignment):
+def getRangeTupleFromAssignment(assignment):
     """Takes a single elf's assignment e.g '2-9' and converts to range(2,9)"""
     start, stop = assignment.split("-")
-    return range(int(start), int(stop) + 1)
+    return int(start), int(stop)
 
 def isRangeInOtherRange(range1, range2):
-    """True is range1 is entirely contained within range2 or vice versa"""
+    """True if range1 is entirely contained within range2 or vice versa"""
 
-    return ((range1.start in range2) and (range1.stop - 1 in range2)) or ((range2.start in range1) and (range2.stop - 1 in range1))
+    return ((range1[0] >= range2[0]) and (range1[1] <= range2[1])) or ((range2[0] >= range1[0]) and (range2[1] <= range1[1]))
+
+def doRangesOverlap(range1, range2):
+    return (range1[0] <= range2[0] <= range1[1]) or (range2[0] <= range1[0] <= range2[1])
 
 def part1(pairs):
     """Solve part 1."""
 
     result = 0
     for pairAssignments in pairs:
-        ranges = map(getRangeFromAssignment, pairAssignments)
+        ranges = map(getRangeTupleFromAssignment, pairAssignments)
         if isRangeInOtherRange(*ranges):
             result += 1
     return result
 
 
-def part2(rucksacks):
+def part2(pairs):
     """Solve part 2."""
 
-    result = None
+    result = 0
+    for pairAssignments in pairs:
+        ranges = map(getRangeTupleFromAssignment, pairAssignments)
+        if doRangesOverlap(*ranges):
+            result += 1
     return result
 
 
