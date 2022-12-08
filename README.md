@@ -20,6 +20,15 @@ That was painful. Lessons learned:
 - unit testing speeds up debugging
 - when in doubt, use extra brackets for complex conditionals
 
+## Day 03
+
+Pretty simple. Wasted some time asserting against a wrong value in my `parse` unit test.
+
+Learned:
+- `return variable1, variable2` returns a tuple.
+- `/` division always returns a float in Python 3. `//` can be used to return an integer.
+- first brush with generators, which seem to be used a lot in the Python community.
+
 ## How to run
 
 ### Prerequisites

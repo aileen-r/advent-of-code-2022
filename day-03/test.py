@@ -15,11 +15,11 @@ def parse_test_input():
 def test_parse(parse_test_input):
     """Test that input is parsed properly."""
 
-    assert parse_test_input == [("vJrwpWtwJgWr", "hcsFMMfFFhFp"), ("jqHRNqRjqzjGDLGL", "rsFMfFZSrLrFZsSL"), ("PmmdzqPrV", "vPwwTWBwg"), ("wMqvLMZHhHMvwLH", "jbvcjnnSBnvTQFn"), ("ttgJtRGJ", "QctTZtZT"), ("CrZsJsPPZsGz", "wwsLwLmpwMDw")]
+    assert list(parse_test_input) == ["vJrwpWtwJgWrhcsFMMfFFhFp", "jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL", "PmmdzqPrVvPwwTWBwg", "wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn", "ttgJtRGJQctTZtZT", "CrZsJsPPZsGzwwsLwLmpwMDw"]
 
 
 def test_part1(parse_test_input):
     assert solve.part1(parse_test_input) == 157
 
 def test_part2(parse_test_input):
-    assert solve.part2(parse_test_input) == 12
+    assert solve.part2(parse_test_input) == 70
