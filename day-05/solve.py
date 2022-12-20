@@ -1,4 +1,4 @@
-import string
+import re
 import sys
 
 def parse(puzzle_input):
@@ -20,23 +20,21 @@ def parse(puzzle_input):
     return crates, moves, stackCount
 
 def getStackedCrates(crates, stackCount):
-    stackedCrates = [[]] * stackCount
+    stackedCrates = [[] for _ in range(stackCount)]
     crates.reverse()
     for rowIdx, row in enumerate(crates):
         for i in range(0, len(row), 4):
             crate = row[i:i+3] if row[i:i+3].strip() else None
-            print(crate)
             if crate:
-                # print(i//4)
-                # print(rowIdx)
-                # print(stackedCrates[i//4])
-                # stackedCrates[i//4].append(crate)
-                stack = stackedCrates[i//4]
-                stack.insert(rowIdx, crate)
-                print(stackedCrates)
-                
-            # this is wrong, every stack is getting every crate
+                stackedCrates[i//4].insert(rowIdx, crate)
+    
     return stackedCrates
+
+def executeMove(move, crates):
+    match = re.search(r"move (\d+) from (\d+) to (\d+)", move)
+    quantity = match.group(0)
+    origin = match.group(1)
+    destination = match.group(2)
 
 
 def part1(data):
@@ -45,7 +43,7 @@ def part1(data):
     crates, moves, stackCount = data;
 
     cratesByStack = getStackedCrates(crates, stackCount)
-    print(cratesByStack)
+    
 
     result = None
     return result

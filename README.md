@@ -37,6 +37,11 @@ By switching to tuples in part 2 I lost my string-to-int cast for a while: test 
 Learned:
 - greater/less than comparitors of string representations of numbers do not work.
 
+## Day 05
+I had some difficulty in parsing out the stacks of crates. In trying to convert from rows to columns, I was attempting to start with a list of empty lists, then loop over each crate and insert into the list of empty lists at the correct index. For some reason though the list `.append` method was inserting into every list in the list.
+
+One thing I've found is I'm struggling to write the correct search terms for Google with Python problems. I eventually solved this problem by Googling "list insert affecting all lists in nested list" and finding [this Stack Overflow answer](https://stackoverflow.com/a/240205).
+
 ## How to run
 
 ### Prerequisites
